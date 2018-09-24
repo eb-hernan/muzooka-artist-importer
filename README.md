@@ -1,23 +1,14 @@
 # muzooka-artist-importer
 Use the Muzzoka API to get the artist info.
 
-## Requirements
-
-1. Verify python 2.7 version `python --version`
-
-2. Verify pip 9 version `pip2 --version`
-
-3. Verify virtualenv 15 version `virtualenv --version`
-
-Note: If one missed install it via `brew` or `easy_install` (install global packages like `virtualenv`) and `pip` (install python packages in a local environment)
 
 ## Virtual Environment
 
-1. Create a virtual environment `mkvirtualenv nextbigsound-python-client`
+1. Install pipenv `brew install pipenv`
 
-2. `cd nextbigsound-python-client`
+2. Activate the virtual environment `pipenv shell`
 
-3. Activate the virtual environment `workon nextbigsound-python-client`
+4. Install the dependencies `pip install fuzzywuzzy`
 
 4. Install the dependencies `pip install fuzzywuzzy`
 
@@ -25,5 +16,8 @@ Note: If one missed install it via `brew` or `easy_install` (install global pack
 
 ## Getting artists info with Muzzoka API
 
+1. Create an account at https://www.muzooka.com/ and create a token
 
-pip install fuzzywuzzy
+2. Add the token in the env variables to be used in the python script `export MUZZOKA_TOKEN="YOUR_PRIVATE_TOKEN"`
+
+3. Test `python importer_by_name.py static/artist_test.xml`
