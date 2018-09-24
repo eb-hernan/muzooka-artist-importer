@@ -10,8 +10,6 @@ Use the Muzzoka API to get the artist info.
 
 4. Install the dependencies `pip install fuzzywuzzy`
 
-4. Install the dependencies `pip install fuzzywuzzy`
-
 5. Deactivate virtual environment once done `deactivate`
 
 ## Getting artists info with Muzzoka API
