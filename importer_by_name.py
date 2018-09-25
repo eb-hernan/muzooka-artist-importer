@@ -19,6 +19,7 @@ def main(argv):
 
     count_artist = 0
     count_artist_match = 0
+    count_artist_match_spotify_id = 0
     ratio_match = 0.0
 
     pathXML = argv[0]
@@ -30,7 +31,9 @@ def main(argv):
     print('Parsing artist file {}\n'.format(pathXML))
 
     for artist in parse_artists(pathXML):
-        resp = get_artist_by_name(artist['name'])
+        resp, mach = get_artist_by_name(artist['name'], artist.get('spotify_id'))
+        if mach:
+            count_artist_match_spotify_id += 1
         count_artist += 1
         if artist['name'] == resp['name']:
             count_artist_match += 1
@@ -50,11 +53,12 @@ def main(argv):
     ratio_avarage = ratio_match / count_artist
     elapsed_time = time.time() - start_time
 
-    print('Resume => \n count_artist: {0} \n count_artist_match: {1} \n ratio_avarage: {2} \n Elapsed time: {3}'.format(
+    print('Resume => \n count_artist: {0} \n count_artist_match: {1} \n ratio_avarage: {2} \n Elapsed time: {3} \n spotify hits {4}'.format(
         count_artist,
         count_artist_match,
         ratio_avarage,
         elapsed_time,
+        count_artist_match_spotify_id,
     ))
 
 

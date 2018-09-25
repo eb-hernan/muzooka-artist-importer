@@ -35,6 +35,7 @@ def parse_artists(pathXML):
                     'id': None,
                     'biography': None,
                     'profile': None,
+                    'spotify_id': None,
                     'social_media_links': [],
                 }
 
@@ -43,6 +44,8 @@ def parse_artists(pathXML):
                     artist['id'] = elem.text
                 if tname == 'name':
                     artist['name'] = elem.text
+                if tname == 'spotify_id':
+                    artist['spotify_id'] = elem.text
                 if tname == 'profile':
                     artist['profile'] = elem.text
 
